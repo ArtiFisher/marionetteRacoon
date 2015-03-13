@@ -1,0 +1,76 @@
+.cut label:not(.menuLabel){
+    display: none;
+}
+
+.lonely {
+    margin-top: 23px;
+}
+
+.lonely img {
+    width: 100%;
+    height: auto;
+}
+
+.lonely article>input:first-of-type {
+    display: block;
+    font-size: 16pt;
+    background-color: white;
+    width: 95%;
+}
+
+.lonely input {
+    margin: 10px;
+}
+
+.lonely > article > textarea.form-control {
+    display: block;
+    width: 95%;
+    margin: 10px;
+    background-color: white;
+}
+
+.lonely:not(.editing) input {
+    cursor: default;
+}
+
+.lonely:not(.editing) textarea {
+    cursor: default;
+}
+
+.lonely button {
+    margin: 10px;
+}
+
+.editing input:last-of-type {
+	display: block;
+	width: 95%;
+}
+
+.lonely .info {
+    padding-left: 10px;
+}
+
+.lonely:not(.editing) input {
+    display: none;
+    border: none;
+}
+
+.lonely:not(.editing) textarea {
+    border: none;
+}
+
+.lonely button {
+	display: none;
+}
+
+.editing button:not(:first-of-type) {
+	display: inline-block;
+}
+
+.lonely:not(.editing) button:first-of-type {
+	display: block;
+}
+
+.view input[type="file"]{
+	display: none;
+}

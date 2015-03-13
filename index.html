@@ -1,0 +1,155 @@
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="styles/bootstrap.css">
+    <link rel="stylesheet" href="styles/lonely.css">
+    <link rel="stylesheet" href="styles/raccoon.css">
+    <link rel="stylesheet" href="styles/nprogress.css">
+</head>
+<body>
+    <header>
+        <a href="#/latest">RACCO<img src="./images/logo.png" alt="">NBLOG</a>
+        <input type="radio" name="labels" id="menu">
+        <nav class="clear">
+            <div class="buttons clear">
+                <label class="question" for="quest">?</label>
+                <label class="exclamatory" for="exclam">!</label>
+                <label class="tagLabel" for="tags"><img src="./images/icon-tag.png"></label>
+                <label class="menuLabel" for="menu"><img src="./images/icon-menu.png"></label>
+            </div>
+            <ul class="clear">
+                <li><a href="#/js">JAVASCRIPT</a></li>
+                <li><a href="#/css">CSS</a></li>
+                <li class="active"><a href="#/latest">LATEST</a></li>
+                <li><a href="#/html">HTML</a></li>
+                <li><a href="#/design">DESIGN</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div id="popUp">
+        <div class="fader" ng-show="fillingForm"></div>
+        <div class="create" id="form">
+        </div>
+    </div>
+
+
+  <div class="view">
+    <aside>
+        <input type="radio" name="labels" id="quest">
+        <article class="about">
+            <h4>ABOUT</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, totam consequuntur, velit sint expedita adipisci ipsam voluptas sed rem fuga vitae! Placeat quasi illo recusandae, molestias necessitatibus laboriosam a, enim?</p>
+        </article>
+        <input type="radio" name="labels" id="exclam">
+        <article class="some-shit">
+            <h4>SOME SHIT</h4>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, totam consequuntur, velit sint expedita adipisci ipsam voluptas sed rem fuga vitae! Placeat quasi illo recusandae, molestias necessitatibus laboriosam a, enim? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, totam consequuntur, velit sint expedita adipisci ipsam voluptas sed rem fuga vitae! Placeat quasi illo recusandae, molestias necessitatibus laboriosam a, enim?</p>
+        </article>
+        <input type="radio" name="labels" id="tags">
+        <div class="tags">
+            <a href="#/tags" class="tag">coon</a>
+            <a href="#/tags" class="tag">cat</a>
+            <a href="#/tags" class="tag">dog</a>
+            <a href="#/tags" class="tag">raccoon</a>
+            <a href="#/tags" class="tag">designer</a>
+            <a href="#/tags" class="tag">mammal</a>
+            <a href="#/tags" class="tag">whale</a>
+            <a href="#/tags" class="tag">ninja</a>
+        </div>
+    </aside>
+    <div class="content">
+        <button class="btn add">New post</button>
+        <div id="list"></div>
+    </div>
+    <div id="one">
+        
+    </div>
+  </div>
+    
+    <script id="blogPost" type="text/template">
+        <div>
+            <% if (typeof(image) !== "undefined") { %>
+                <a href="#/post/<%= _id %>"><img src="<%= image %>"></a>
+            <% } %>
+            <% if (typeof(title) !== "undefined") { %>
+                <h4><a href="#/post/<%= _id %>"><%= title %></a></h4>
+            <% } %>
+            <div class="info">
+                <% if (typeof(date) !== "undefined") { %>
+                    <span><%= Racoon.dateFilter(date) %></span>
+                
+                <%} else { %>
+                    <span>no date</span>
+                <% } %>
+
+                <% if (typeof(author) !== "undefined") { %>
+                    <a href="#">by <%= author %></a>
+                <% } %>
+                <div class="social">
+                    <ul>
+                        <li class="facebook">
+                            <span class="logo"></span>
+                            <span class="number">16</span>
+                        </li>
+                        <li class="google">
+                            <span class="logo"></span>
+                            <span class="number">7</span>
+                        </li>
+                        <li class="twitter">
+                            <span class="logo"></span>
+                            <span class="number">15</span>
+                        </li>
+                        <li class="vk">
+                            <span class="logo"></span>
+                            <span class="number">16</span>
+                        </li>
+                        <li class="yandex">
+                            <span class="logo"></span>
+                            <span class="number">0</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <% if (typeof(text) !== "undefined") { %>
+                <p><%= text %></p>
+            <% } %>
+            <button class="btn btn-default destroy" type="button">Remove</button>
+        </div>
+    </script>
+
+    <script id="onePost" type="text/template">
+        <article>
+            <% if (typeof(image) !== "undefined") { %>
+                <img src="<%= image %>">
+            <% } %>
+            <input type="text" name="title" value="<%= title %>" disabled class="form-control">
+            <div class="info">
+                <span><%= date %></span>
+                <a href="#/authors">by <%= author %></a>
+            </div>
+            <textarea disabled name="text" class="form-control"><%= text %></textarea>
+            <input type="file">
+            <input type="text" name="image" value="<%= image %>" placeholder="Image URL" class="form-control">
+            <button class="btn btn-default edit" type="button">Edit</button>
+            <button class="btn btn-default save" type="button">Save</button>
+        </article>
+    </script>
+
+    <script id="formView" type="text/template">
+        <input type="text" id="author" placeholder="Author" class="form-control">
+        <input type="text" id="title" placeholder="Title" class="form-control">
+        <textarea type="text" id="text" placeholder="Text" class="form-control"></textarea>
+        <input type="text" id="url" placeholder="Image URL" class="form-control">
+        <button class="btn btn-default submit">Save</button>
+        <button class="btn btn-default cancel">Cancel</button>
+    </script>
+
+    <script src="scripts/jquery-1.11.2.js"></script>
+    <script src="scripts/underscore.js"></script>
+    <script src="scripts/backbone.js"></script>
+    <script src="scripts/backbone.marionette.js"></script>
+    <script src="scripts/nprogress.js"></script>
+    <script src="scripts/mainMarionette.js"></script>
+</body>
+</html>

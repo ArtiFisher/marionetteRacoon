@@ -1,0 +1,33 @@
+[
+  {
+    "_id": "54e4a58afef38b74188ed07a",
+    "author": "arti",
+    "title": "Penguinische",
+    "text": "phantom menace...",
+    "date": "2015-03-10T07:18:32.922Z",
+    "image": "http://www.get-covers.com/wp-content/uploads/2014/09/large-4.jpg"
+  },
+  {
+    "_id": "54e4a8e3fef38b74188ed07b",
+    "author": "arti",
+    "title": "title",
+    "text": "text",
+    "date": "2015-02-18T15:04:23.133Z",
+    "image": "http://www.get-covers.com/wp-content/uploads/2014/09/Big-Almaty-Lake.jpg"
+  },
+  {
+    "_id": "54e4aacdfef38b74188ed07c",
+    "author": "arti",
+    "title": "Book",
+    "text": "It's a book! Read it!",
+    "date": "2015-02-24T06:56:33.505Z",
+    "image": "http://www.get-covers.com/wp-content/uploads/2014/09/Image73.jpg"
+  },
+  {
+    "_id": "54ec2400fef38b74188ed0d2",
+    "author": "arti",
+    "title": "something",
+    "text": "texty",
+    "date": "2015-02-24T07:15:36.963Z"
+  }
+]
