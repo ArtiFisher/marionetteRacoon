@@ -28,8 +28,7 @@
             return 'no date';
         }
         return '' + now[2] + ' ' + now[0] + ', ' + now[1];
-
-    }
+    };
 
     Racoon.Models.Post = Backbone.Model.extend({
         idAttribute: '_id'
@@ -54,7 +53,13 @@
 
     Racoon.Views.Post = Backbone.Marionette.ItemView.extend({
         template: template('blogPost'),
-        tagName: 'article'
+        tagName: 'article',
+        events: {
+            'click .destroy': 'destroy'
+        },
+        destroy: function() {
+            
+        }
     });
 
     Racoon.Views.NoPosts = Backbone.Marionette.ItemView.extend({
@@ -83,12 +88,22 @@
             url: '#url'
         },
         submit: function(){
-            $('#popUp').toggle();
-            this.collection.add({
-                author: this.ui.author.val(),
-                title: this.ui.title.val(),
-                text: this.ui.text.val(),
-                url: this.ui.url.val()
+            $('#popUp').hide();
+            var model = new Racoon.Models.Post(
+                {
+                    author: this.ui.author.val(),
+                    title: this.ui.title.val(),
+                    text: this.ui.text.val(),
+                    image: this.ui.url.val(),
+                    date: new Date()
+                }
+            );
+            model.url = Racoon.App.posts.url;
+            model.save({}, {
+                success: function(response){
+                    Racoon.App.posts.add(model);
+                    Racoon.App.list.show(new Racoon.Views.Posts({collection: Racoon.App.posts}));
+                }
             });
             this.ui.author.val('');
             this.ui.title.val('');
@@ -96,7 +111,7 @@
             this.ui.url.val('');
         },
         cancel: function(){
-            $('#popUp').toggle();
+            $('#popUp').hide();
         }
     });
 
@@ -152,6 +167,10 @@
 
     Racoon.App.addInitializer(function() {
         Racoon.App.posts = new Racoon.Collections.Posts();
+        $('.add').on('click', function(){
+            Racoon.App.form.show(new Racoon.Views.Form());
+            $('#popUp').show();
+        });
         new Racoon.Router;
         Backbone.history.start();
     });
