@@ -91,13 +91,13 @@
         }
     });
 
-    Racoon.Views.NoPosts = Backbone.Marionette.ItemView.extend({
-        template:'#noPosts'
-    });
+    // Racoon.Views.NoPosts = Backbone.Marionette.ItemView.extend({
+    //     template:'#noPosts'
+    // });
 
     Racoon.Views.Posts = Backbone.Marionette.CollectionView.extend({
         childView: Racoon.Views.Post,
-        emptyView: Racoon.Views.NoPosts,
+        // emptyView: Racoon.Views.NoPosts,
         tagName: 'section',
         onBeforeRender: function(){
             this.collection = this.collection.byAuthor('arti');
