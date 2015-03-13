@@ -114,23 +114,23 @@
             <% if (typeof(text) !== "undefined") { %>
                 <p><%= text %></p>
             <% } %>
-            <button class="btn btn-default destroy" type="button">Remove</button>
+            <button class="btn btn-default remove" type="button">Remove</button>
         </div>
     </script>
 
     <script id="onePost" type="text/template">
         <article>
             <% if (typeof(image) !== "undefined") { %>
-                <img src="<%= image %>">
+                <img id='oneImage' src="<%= image %>">
             <% } %>
-            <input type="text" name="title" value="<%= title %>" disabled class="form-control">
+            <input type="text" id="oneTitle" value="<%= title %>" disabled class="form-control">
             <div class="info">
-                <span><%= date %></span>
+                <span id='oneDate'><%= Racoon.dateFilter(date) %></span>
                 <a href="#/authors">by <%= author %></a>
             </div>
-            <textarea disabled name="text" class="form-control"><%= text %></textarea>
+            <textarea disabled id="oneText" class="form-control"><%= text %></textarea>
             <input type="file">
-            <input type="text" name="image" value="<%= image %>" placeholder="Image URL" class="form-control">
+            <input type="text" id="oneUrl" value="<%= image %>" placeholder="Image URL" class="form-control">
             <button class="btn btn-default edit" type="button">Edit</button>
             <button class="btn btn-default save" type="button">Save</button>
         </article>

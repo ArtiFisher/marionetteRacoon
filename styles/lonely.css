@@ -2,6 +2,10 @@
     display: none;
 }
 
+.add {
+    display: none;
+}
+
 .lonely {
     margin-top: 23px;
 }
